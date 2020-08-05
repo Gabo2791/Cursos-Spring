@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Start Webpage Spring Tools Project</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>INICIO</h1>
+        <a th:href="@{/agregar}">Crear Persona</a>
+        <div th:if="${personas != null and !personas.empty}">
+
+            <table border="3">
+                <tr>
+                    <th>Nombre:</th>
+                    <th>Apellido:</th>
+                    <th>Email:</th>
+                    <th>Teléfono:</th>
+                </tr>
+                <tr th:each="persona: ${personas}">
+                    <td th:text ="${persona.nombre}">VER EL NOMBRE</td>                
+                    <td th:text ="${persona.apellido}">VER EL APELLIDO</td>
+                    <td th:text ="${persona.email}">VER EL EMAIL</td>
+                    <td th:text ="${persona.telefono}">VER EL TELEFONO</td>
+                    <td><a th:href ="@{/editar/} + ${persona.idPersona}" th:text="Editar"></a></td>
+                 <!--    <td><a th:href ="@{/eliminar/} + ${persona.idPersona}" th:text="Eliminar"></a></td>  -->
+                 	<td><a th:href ="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"></a></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            La lista de personas esta vacía :(
+    </body>
+</html>
