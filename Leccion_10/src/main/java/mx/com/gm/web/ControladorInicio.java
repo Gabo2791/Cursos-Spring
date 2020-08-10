@@ -3,7 +3,7 @@ package mx.com.gm.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-//import lombok.var;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import mx.com.gm.domain.Persona;
 import mx.com.gm.servicio.PersonaService;
