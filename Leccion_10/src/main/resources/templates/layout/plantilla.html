@@ -22,6 +22,10 @@
 		<span> &copy;[[#{plantilla.pie-pagina}]]<a
 			href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a>
 		</span>
+		</br></br>
+		<form method="POST" th:action="@{/logout}">
+			<a href="#" onclick="this.parentNode.submit();">Logout</a>
+		</form>
 	</footer>
 </body>
 </html>

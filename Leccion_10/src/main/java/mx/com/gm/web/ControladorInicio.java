@@ -11,6 +11,8 @@ import mx.com.gm.servicio.PersonaService;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -22,11 +24,13 @@ public class ControladorInicio {
     @Autowired
     private PersonaService personaService; //Inyectar una instancia de la clase PersonaServiceImplementation
     
-    @GetMapping("/") //mapeo de inicio
-    public String inicio(Model model) {
+    @GetMapping("/") //mapeo de inicio de la pagina 
+    public String inicio(Model model, @AuthenticationPrincipal User user ) {
     	var personas = personaService.listarPersonas();
         log.info("Ejecutando el controlador Spring MVC");
+        log.info("***-->Usuario que hizo login: " + user);
         model.addAttribute("personas", personas);
+        System.out.println("se carga el mapeo de clases");
         return "index";
     }
     

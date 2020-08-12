@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring/security">
+<head>
+<meta charset="UTF-8">
+<title>PLANTILLA</title>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1 th:text="#{plantilla.titulo}">TITULO</h1>
+	</header>
+
+	<footer th:fragment="footer">
+		<div>
+			</br> 
+			<a th:href="@{/(lang=es)}">ES</a>| 
+			<a th:href="@{/(lang=en)}">EN</a>|
+			<a th:href="@{/(lang=fr)}">FR</a>|
+			<a th:href="@{/(lang=de)}">DE</a>|
+			<a th:href="@{/(lang=it)}">IT</a>| 
+		</div>
+		<span> &copy;[[#{plantilla.pie-pagina}]]<a
+			href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a>
+		</span>
+		</br></br>
+		<form method="POST" th:action="@{/logout}">
+			<a href="#" onclick="this.parentNode.submit();">Logout</a>
+		</form>
+		<b>User: </b><span sec:authentication="name">Usuario que hizo login: </span> |
+		<b>Roles de Canela: </b><span sec:authentication="principal.authorities">Roles de canela: </span> |
+	</footer>
+</body>
+</html>
