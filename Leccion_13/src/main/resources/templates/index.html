@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring/security">
+
+<head th:replace="layout/plantilla :: head">
+	<meta charset="UTF-8">
+	<title>Control de Clientes</title>
+
+</head>
+<body>
+	<header th:replace="layout/plantilla::header"></header>
+	<section th:replace="layout/botonesAgregar :: botonesAgregar"></section>
+	<section th:replace="layout/listadoClientes :: listadoClientes"></section>
+	<section th:replace="layout/agregarCliente :: agregarCliente"></section>
+	<footer th:replace="layout/plantilla::footer"></footer>
+</body>
+</html>
